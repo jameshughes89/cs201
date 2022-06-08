@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #
-# CS2120 documentation build configuration file, created by
 # sphinx-quickstart on Thu Aug 16 14:06:22 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -11,7 +10,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sphinx_adc_theme
+#import something
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -40,8 +39,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'CSCI 162'
-copyright = u'2021, James Hughes & Taras Mychaskiw'
+project = u'CSCI 255'
+copyright = u'2022, James Hughes & Taras Mychaskiw'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -92,9 +91,9 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 # html_theme = 'sphinxdoc'
-# html_theme = 'alabaster'
-html_theme = 'sphinx_adc_theme'
-html_theme_path = [sphinx_adc_theme.get_html_theme_path()]
+html_theme = "alabaster"
+# html_theme = "sphinx_adc_theme"
+# html_theme_path = [sphinx_adc_theme.get_html_theme_path()]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -109,7 +108,7 @@ html_theme_path = [sphinx_adc_theme.get_html_theme_path()]
 # html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = "162"
+html_short_title = "255"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -118,7 +117,7 @@ html_short_title = "162"
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = 'img/favicon/favicon.ico'
+html_favicon = "favicon/favicon.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -167,7 +166,7 @@ html_last_updated_fmt = '%b %d, %Y'
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'CSCI 162doc'
+htmlhelp_basename = 'CSCI 255doc'
 
 # -- Options for LaTeX output --------------------------------------------------
 
@@ -185,7 +184,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'CSCI 162.tex', u'CSCI 162 Documentation',
+    ('index', 'CSCI 255.tex', u'CSCI 255 Documentation',
      u'James Hughes', 'manual'),
 ]
 
@@ -215,7 +214,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'CSCI 162', u'CSCI 162 Documentation',
+    ('index', 'CSCI 255', u'CSCI 255 Documentation',
      [u'James Hughes'], 1)
 ]
 
@@ -229,8 +228,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'CSCI 162', u'CSCI 162 Documentation',
-     u'James Hughes', 'CSCI 162', 'Programming and Data Structures',
+    ('index', 'CSCI 255', u'CSCI 255 Documentation',
+     u'James Hughes', 'CSCI 255', 'Advanced Data Structures',
      'Miscellaneous'),
 ]
 

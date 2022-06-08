@@ -1,69 +1,41 @@
-********************************************************************
-Outline for Computer Science 162 --- Programming and Data Structures
-********************************************************************
+************************************************************************
+Outline for Computer Science 201 --- Advanced Data Structures Structures
+************************************************************************
 
 
 
-Winter 2022
-===========
-
-.. warning::
-    This outline is written assuming in person lectures begin 2 weeks after the start of the semester. As of the time
-    of writing, the first two weeks are scheduled to be online only. If circumstances change, this outline will be
-    updated accordingly. The major changes that would occur are (a) online lectures, (b) online labs, (c) the removal
-    of the midterm and having its portion of the final grade spread over the assignments, and (d) the format of the
-    final exam.
-
-    None of the above warning should suggest that it is expected that things will change.
+SEMESTER YEAR
+=============
 
 
 
 Course Description
 ==================
 
-Continuing from the material in CSCI 161, this course covers memory management and data abstraction via classes and
-objects, and introduces the linear data structures lists, stacks, and queues. Structured programming is encouraged via
-modular development. Credit will be granted for only one of CSCI 162 and INFO 256. Three credits and a two-hour lab.
-
 
 
 Prerequisites
 =============
 
-CSCI 125 or 161 or ENGR 147.
-
-Unless you have the prerequisites for this course or written special permission from your Dean to enroll in it, you
-will be removed from this course and it will be deleted from your record. This decision may not be appealed. You will
-receive no adjustment to your fees in the event that you are dropped from a course for failing to have the necessary
-prerequisites.
-
+CSCI 162
 
 
 Instructor
 ==========
 
-* James Hughes
-* Office: Annex 20B
-* Office Hours: Tuesday -- Friday, 10:00am -- 11:00am, **Virtual Only --- See Moodle**
-* Email: jhughes at stfx.ca
-
+TBD
 
 
 Class Times
 ===========
 
-* Tuesday   11:15 -- 12:15, MULH 2030
-* Wednesday 13:15 -- 14:15, MULH 2030
-* Friday    12:15 -- 13:15, MULH 2030
-
+TBD
 
 
 Lab
 ===
 
-* Sec 1: Thursday 14:15 -- 16:15, MULH 4024
-* Sec 2: Monday   13:15 -- 15:15, MULH 4024
-
+TBD
 
 
 Website
@@ -73,65 +45,22 @@ Website
 * MOODLE
 
 
-
 Textbook and Lecture Notes
 ==========================
 
-Lecture notes will be posted to the website. They are provided as a courtesy by the professor. Possessing and reading
-these notes are not a suitable substitute for attending lectures.
-
-Assignments and Labs will be posted to this website. Assignments will be submitted through
-`Moodle <https://moodle.stfx.ca/>`_.
-
-The textbook for this class is:
-
-J. Lewis and J. Chase,
-*Java Software Structures: Designing and Using Data Structures, 4th edition.*
-Upper Saddle River, NJ: Pearson, 2013.
-
+TBD
 
 
 Topics
 ======
 
-Below is a list of topics in no particular order that may or may not be covered in the course:
-
-* Classes
-* Stacks
-* Queues
-* Linked Structures
-* Lists
-* Iterators
-* Inheritance
-* Memory
-* Recursion
-* Analysis of Algorithms
-* Trees & Binary Trees
-* Sorting Algorithms
-
+TBD
 
 
 Student Evaluation (Tentative Dates)
 ====================================
 
-+------------------------+------------+---------------------+
-|                        | Worth      | Due                 |
-+========================+============+=====================+
-| Assignment 1           | 10%        | Early February-ish  |
-+------------------------+------------+---------------------+
-| Assignment 2           | 10%        | Late February-ish   |
-+------------------------+------------+---------------------+
-| Assignment 3           | 10%        | Mid March-ish       |
-+------------------------+------------+---------------------+
-| Assignment 4           | 10%        | Early April-ish     |
-+------------------------+------------+---------------------+
-| Labs                   | 10%        | Throughout          |
-+------------------------+------------+---------------------+
-| Midterm Exam           | 20%        | Early March-ish     |
-+------------------------+------------+---------------------+
-| Final Exam             | 30%        | TBA                 |
-+------------------------+------------+---------------------+
-
+TBD
 
 
 Assignment Submission
@@ -147,16 +76,11 @@ descriptions.
 We reserve the right to use similarity detection software to detect possible cheating cases.
 
 
-
 Assignment Due Dates
 ====================
 
-The date and exact time assignments are due will be given in the assignment specifications.
-
-Assignments are due on the posted due date, but will be accepted with no penalty for up to a maximum of 7 days after the
-posted date. Any submission past the 7 day period will not be accepted.
-
-No extensions will be given for assignments for after the 7 day late period.
+he date and exact time assignments are due will be given in the assignment specifications. No submissions will be taken
+after the due date; there are no late submissions. No extensions will be given for assignments.
 
 
 Assignment Marking
@@ -177,7 +101,6 @@ assignment, to guard against the possibility of errors in recording marks. It is
 until you are satisfied that your final mark for the course has been computed properly.
 
 
-
 Tests
 =====
 
@@ -187,7 +110,6 @@ Tests
 * Use of a cell phone is not permitted
 * The possession of unauthorized devices during tests and examinations constitutes violation of academic integrity, as per section 3.8.2(b)(v) of the academic calendar
 * Anything that a reasonable person would deem as cheating is not permitted
-
 
 
 Labs
@@ -207,11 +129,10 @@ in advance. Students coming to lab unprepared will be asked to leave.
     * students who encounter serious health or other personal difficulties are encouraged to contact the professor.
 
 
-
 Email Contact
 =============
 
-As far as you are concerned, my name is Dr. Hughes or Professor Hughes.
+As far as you are concerned, my name is Dr. So n' so or Professor So n' so.
 
 I may need to send email messages to the whole class or to students individually. Email will be sent to the StFX email
 address assigned to students. It is the responsibility of the student to read this email on a regular basis. You may
@@ -228,7 +149,6 @@ account and include CSCI 162 in the subject line of the email. Lengthy and in-de
 office hours.
 
 
-
 Attendance
 ==========
 
@@ -239,11 +159,10 @@ You will be reported to the Associate Dean of Academic Affairs' Office if you ar
 in assignments or attendance at classes or laboratories.
 
 
-
 Copyright Policy
 ================
 
-The materials in CSCI 161 at StFX are the property of the instructor, unless stated otherwise by the instructor. Online
+The materials in CSCI 255 at StFX are the property of the instructor, unless stated otherwise by the instructor. Online
 posting or selling this material to third parties for distribution without permission is subject to Canadian Copyright
 law and is strictly prohibited.
 
@@ -258,7 +177,6 @@ violate an instructor's intellectual property rights and the Canadian Copyright 
 be subject to disciplinary actions.
 
 
-
 Statement of Academic Offenses
 ===============================
 
@@ -270,7 +188,6 @@ for academic misconduct. I will pursue academic offenses fully. I will apply -10
 advocate for an automatic failure in the course, or expulsion from the university when allowed.
 
 
-
 Use of Plagiarism-Checking Software
 ===================================
 
@@ -280,13 +197,11 @@ checking will be included as source documents in the reference database for the 
 papers subsequently submitted to the system.
 
 
-
 Use of Cheating-Analysis Software
 =================================
 
 All submitted work may be subject to submission for similarity review by software that will check for unusual
 coincidences in answer patterns that may indicate cheating (MOSS).
-
 
 
 Tutoring
@@ -299,13 +214,11 @@ If you need help though, please just come by my office, or go see the TAs. We're
 criminally underused (unless there's an assignment due... then it looks like Main st. at 4:45pm).
 
 
-
 Statement on Accommodation of Religious Observances
 ===================================================
 
 Requests for accommodation of specific religious or spiritual observance must be presented in writing to the instructor
 within the fist two weeks of class.
-
 
 
 Statement for Students with Disabilities
@@ -325,7 +238,6 @@ To book an appointment please use the following:
 * Email --- tramble@stfx.ca
 
 
-
 Academic Accommodation for Medical Illness
 ==========================================
 
@@ -333,13 +245,11 @@ Those unable to attend class, submit an assignment, or write a test, should refe
 academic calendar.
 
 
-
 Scent Policy
 ============
 
 For the benefit of the many students that have a scent sensitivity, my classroom is a no-scent zone; please respect this
 policy.
-
 
 
 Equity

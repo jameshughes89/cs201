@@ -1,5 +1,5 @@
 ***************************
-Getting set up for CSCI 162
+Getting set up for CSCI 201
 ***************************
 
 Java Development Kit --- Oracle or OpenJDK
@@ -49,4 +49,4 @@ I've Still Got Issues
     * What about if I am using operating system X
     * etc.
 
-* `I am confident you can find the answers on my favourite website <https://www.google.ca/>`_ 
+* `I am confident you can find the answers on my favourite website <https://www.google.ca/>`_

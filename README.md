@@ -1,6 +1,6 @@
-# csXXX
+# cs201
 
-CS XXX: Template for a Java based CS course
+CS 201: Advanced Data Structures
 
 
 # build
