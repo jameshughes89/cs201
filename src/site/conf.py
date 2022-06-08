@@ -93,7 +93,7 @@ pygments_style = 'sphinx'
 # html_theme = 'sphinxdoc'
 # html_theme = "stanford_theme"
 # html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
-html_them = "press"
+html_them = "karma_sphinx_theme"
 # html_theme = "sphinx_adc_theme"
 # html_theme_path = [sphinx_adc_theme.get_html_theme_path()]
 
