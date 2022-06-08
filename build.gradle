@@ -12,7 +12,7 @@ repositories {
 
 python {
     pip 'sphinx:4.0.1'
-    pip 'karma-sphinx-theme:0.0.8'
+    pip 'sphinx-rtd-theme:1.0.0'
 }
 
 dependencies {
