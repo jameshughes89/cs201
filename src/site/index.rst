@@ -11,14 +11,16 @@ Professor
 * someone at stfx.ca
 
 
-
 GitHub Repo
 ===========
 
 * The course content is available on `GitHub <https://github.com/jameshughes89/cs201>`_
 * Feel free to submit issues, fork the repo, and submit pull requests
-   * Follow the guidelines
+
+    * Follow the guidelines
+
 * In other words, feel free to make contributions to the course content
+
    * In fact, I encourage this
 
 
@@ -57,6 +59,7 @@ Getting Started
 ===============
 
 .. toctree::
+    :caption: Getting Started
     :maxdepth: 1
 
     getting-set/getting-set
@@ -66,6 +69,7 @@ Course Notes
 ============
 
 .. toctree::
+    :caption: Course Notes
     :maxdepth: 1
 
     topics/introduction/introduction
@@ -75,6 +79,7 @@ Labs
 ====
 
 .. toctree::
+    :caption: Labs
     :maxdepth: 1
 
     labs\lab-name\lab-name
@@ -84,6 +89,7 @@ Assignments
 ===========
 
 .. toctree::
+    :caption: Assignments
     :maxdepth: 1
 
     assignments/some-name/some-name
@@ -93,14 +99,7 @@ Course Outline
 ==============
 
 .. toctree::
+    :caption: Course Outline
     :maxdepth: 1
 
     outline/outline
-
-
-==================
-
-     * :ref:`genindex`
-     * :ref:`modindex`
-     * :ref:`search`
-
