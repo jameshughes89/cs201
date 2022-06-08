@@ -10,7 +10,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sphinx_theme
+# import sphinx_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -91,8 +91,9 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 # html_theme = 'sphinxdoc'
-html_theme = "stanford_theme"
-html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
+# html_theme = "stanford_theme"
+# html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
+html_them = "press"
 # html_theme = "sphinx_adc_theme"
 # html_theme_path = [sphinx_adc_theme.get_html_theme_path()]
 
