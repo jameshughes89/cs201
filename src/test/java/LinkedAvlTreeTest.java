@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.*;
+import org.junit.runner.notification.RunListener;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -21,7 +22,6 @@ public class LinkedAvlTreeTest {
             assertThat(classUnderTest.size())
                     .isEqualTo(0);
         }
-
 
         @Nested
         class WhenSingleton {
