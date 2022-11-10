@@ -57,7 +57,7 @@ public class LinkedAvlTree<T extends Comparable<? super T>> implements BinarySea
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
