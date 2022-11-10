@@ -46,7 +46,7 @@ public class LinkedAvlTree<T extends Comparable<? super T>> implements BinarySea
     }
 
     @Override
-    public int getCount(T element) {
+    public int count(T element) {
         return 0;
     }
 

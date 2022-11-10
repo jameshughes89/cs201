@@ -70,7 +70,7 @@ public interface BinarySearchTree<T extends Comparable<? super T>> extends Itera
      * @param element Element to be counted
      * @return Number of times the element occurred in the binary search tree.
      */
-    int getCount(T element);
+    int count(T element);
 
     /**
      * Checks if the tree is empty.
