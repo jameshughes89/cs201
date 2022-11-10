@@ -5,6 +5,11 @@ public class LinkedAvlTree<T extends Comparable<? super T>> implements BinarySea
     private int size;
     private Node<T> root;
 
+    public LinkedAvlTree(){
+        root = null;
+        size = 0;
+    }
+
     @Override
     public void add(T element) {
 
