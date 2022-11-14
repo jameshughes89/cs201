@@ -61,11 +61,11 @@ public class ArrayMinHeapTest {
                     classUnderTest.add(9);
                     classUnderTest.add(15);
                     classUnderTest.add(5);
-                    classUnderTest.add(11);
+                    classUnderTest.add(10);
                     preState.add(9);
                     preState.add(15);
                     preState.add(5);
-                    preState.add(11);
+                    preState.add(10);
                 }
 
                 @Test
