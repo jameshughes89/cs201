@@ -10,22 +10,23 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
     /**
      * Create a new empty heap with the array container being created with the default capacity.
      */
-    public ArrayMinHeap(){
+    public ArrayMinHeap() {
         this(DEFAULT_CAPACITY);
     }
 
     /**
      * Create a new empty heap with the array container being created with the specified capacity.
+     *
      * @param initialCapacity
      */
-    public ArrayMinHeap(int initialCapacity){
+    public ArrayMinHeap(int initialCapacity) {
         heap = (T[]) new Comparable[initialCapacity];
         size = 0;
     }
 
     @Override
-    public void add(T element) {
-
+    public boolean add(T element) {
+        return false;
     }
 
     @Override
@@ -38,9 +39,8 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         return null;
     }
 
-
     @Override
-    public int size(){
+    public int size() {
         return this.size;
     }
 
