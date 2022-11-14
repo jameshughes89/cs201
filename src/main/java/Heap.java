@@ -1,4 +1,4 @@
-public interface Heap<T extends Comparable<? super T>> extends Iterable<T> {
+public interface Heap<T extends Comparable<? super T>> {
 
     /**
      * Add the provided element to the heap such that the heap ordering is preserved.

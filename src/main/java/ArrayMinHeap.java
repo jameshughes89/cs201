@@ -1,4 +1,4 @@
-import java.util.Iterator;
+import java.util.Arrays;
 
 public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
@@ -26,7 +26,34 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
     @Override
     public boolean add(T element) {
-        return false;
+        if (size() == heap.length) {
+            heap = Arrays.copyOf(heap, heap.length * 2);
+        }
+        heap[size] = element;
+        bubbleUp(size);
+        size++;
+        return true;
+    }
+
+    private void bubbleUp(int index) {
+        int currentIndex = index;
+        int parentIndex = getParent(size);
+        while (currentIndex != 0
+                && heap[currentIndex].compareTo(heap[parentIndex]) < 0) {
+            swap(currentIndex, parentIndex);
+            currentIndex = parentIndex;
+            parentIndex = getParent(currentIndex);
+        }
+    }
+
+    private void swap(int currentIndex, int parentIndex) {
+        T temp = heap[parentIndex];
+        heap[parentIndex] = heap[currentIndex];
+        heap[currentIndex] = temp;
+    }
+
+    private int getParent(int index) {
+        return (index - 1) / 2;
     }
 
     @Override
@@ -47,10 +74,5 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
     @Override
     public int size() {
         return this.size;
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return null;
     }
 }
