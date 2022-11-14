@@ -7,18 +7,18 @@ public class MinHeap<T extends Comparable<? super T>> implements Heap<T> {
     private int size;
     private T[] heap;
 
-    public MinHeap(){
+    public MinHeap() {
         this(DEFAULT_CAPACITY);
     }
 
-    public MinHeap(int initialCapacity){
+    public MinHeap(int initialCapacity) {
         heap = (T[]) new Object[initialCapacity];
         size = 0;
     }
 
     @Override
-    public void add(T element) {
-
+    public boolean add(T element) {
+        return false;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class MinHeap<T extends Comparable<? super T>> implements Heap<T> {
     }
 
     @Override
-    public int size(){
+    public int size() {
         return this.size;
     }
 
