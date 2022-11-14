@@ -26,7 +26,13 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
     @Override
     public boolean add(T element) {
-        return false;
+        if (size() == heap.length) {
+            expandCapacity();
+        }
+        heap[size] = element;
+        bubbleUp(size);
+        size++;
+        return true;
     }
 
     @SuppressWarnings("unchecked")
@@ -36,7 +42,18 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         heap = newHeap;
     }
 
-    private void bubbleUp(int currentIndex, int parentIndex) {
+    private void bubbleUp(int index) {
+        int currentIndex = index;
+        int parentIndex = getParent(size);
+        while (currentIndex != 0
+                && heap[currentIndex].compareTo(heap[parentIndex]) > 0) {
+            swap(currentIndex, parentIndex);
+            currentIndex = parentIndex;
+            parentIndex = getParent(currentIndex);
+        }
+    }
+
+    private void swap(int currentIndex, int parentIndex) {
         T temp = heap[parentIndex];
         heap[parentIndex] = heap[currentIndex];
         heap[currentIndex] = temp;
