@@ -5,6 +5,9 @@ public class LinkedAvlTree<T extends Comparable<? super T>> implements BinarySea
     private int size;
     private Node<T> root;
 
+    /**
+     * Create a new empty avl tree. The root element is set to null. 
+     */
     public LinkedAvlTree(){
         root = null;
         size = 0;
