@@ -25,6 +25,7 @@ public class ArrayMinHeapTest {
                     .isEqualTo(0);
         }
 
+        @Test
         void isEmpty_empty_returnsTrue() {
             assertThat(classUnderTest.isEmpty())
                     .isTrue();
@@ -32,6 +33,24 @@ public class ArrayMinHeapTest {
 
         @Nested
         class WhenSingleton {
+
+            @BeforeEach
+            void addSingleInteger() {
+                classUnderTest.add(10);
+                preState.add(10);
+            }
+
+            @Test
+            void size_singleton_returnsOne() {
+                assertThat(classUnderTest.size())
+                        .isEqualTo(1);
+            }
+
+            @Test
+            void isEmpty_singleton_returnsFalse() {
+                assertThat(classUnderTest.isEmpty())
+                        .isFalse();
+            }
 
             @Nested
             @TestInstance(TestInstance.Lifecycle.PER_CLASS)
