@@ -1,7 +1,9 @@
-import org.junit.jupiter.api.*;
-import org.junit.runner.notification.RunListener;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LinkedAvlTreeTest {
 
@@ -18,9 +20,14 @@ public class LinkedAvlTreeTest {
     class WhenEmpty {
 
         @Test
-        void size_empty_returnsZero(){
+        void size_empty_returnsZero() {
             assertThat(classUnderTest.size())
                     .isEqualTo(0);
+        }
+
+        void isEmpty_empty_returnsTrue() {
+            assertThat(classUnderTest.isEmpty())
+                    .isTrue();
         }
 
         @Nested
@@ -31,9 +38,6 @@ public class LinkedAvlTreeTest {
             class WhenMany {
 
             }
-
         }
-
     }
-
 }
