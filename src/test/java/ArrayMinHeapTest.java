@@ -41,6 +41,7 @@ public class ArrayMinHeapTest {
         void add_empty_updatesHeap() {
             classUnderTest.add(10);
             assertThat(classUnderTest)
+                    .usingRecursiveComparison()
                     .isNotEqualTo(preState);
         }
 
@@ -75,6 +76,7 @@ public class ArrayMinHeapTest {
             void add_singleton_updatesHeap() {
                 classUnderTest.add(10);
                 assertThat(classUnderTest)
+                        .usingRecursiveComparison()
                         .isNotEqualTo(preState);
             }
 
@@ -116,6 +118,7 @@ public class ArrayMinHeapTest {
                 void add_many_updatesHeap() {
                     classUnderTest.add(10);
                     assertThat(classUnderTest)
+                            .usingRecursiveComparison()
                             .isNotEqualTo(preState);
                 }
             }

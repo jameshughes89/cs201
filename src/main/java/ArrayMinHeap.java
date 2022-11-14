@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
@@ -75,10 +74,5 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
     @Override
     public int size() {
         return this.size;
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return null;
     }
 }
