@@ -4,13 +4,13 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ArrayMinHeapTest {
 
-    private ArrayMinHeap classUnderTest;
-    private ArrayMinHeap preState;
+    private ArrayMinHeap<Integer> classUnderTest;
+    private ArrayMinHeap<Integer> preState;
 
     @BeforeEach
     void createCountryCatalogues() {
-        classUnderTest = new ArrayMinHeap();
-        preState = new ArrayMinHeap();
+        classUnderTest = new ArrayMinHeap<>();
+        preState = new ArrayMinHeap<>();
     }
 
     @Nested

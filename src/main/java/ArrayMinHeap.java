@@ -19,7 +19,7 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
      * @param initialCapacity
      */
     public ArrayMinHeap(int initialCapacity){
-        heap = (T[]) new Object[initialCapacity];
+        heap = (T[]) new Comparable[initialCapacity];
         size = 0;
     }
 
