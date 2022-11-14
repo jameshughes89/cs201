@@ -56,6 +56,29 @@ public class ArrayMinHeapTest {
             @TestInstance(TestInstance.Lifecycle.PER_CLASS)
             class WhenMany {
 
+                @BeforeEach
+                void addSingleInteger() {
+                    classUnderTest.add(9);
+                    classUnderTest.add(15);
+                    classUnderTest.add(5);
+                    classUnderTest.add(11);
+                    preState.add(9);
+                    preState.add(15);
+                    preState.add(5);
+                    preState.add(11);
+                }
+
+                @Test
+                void size_many_returnsCorrectSize() {
+                    assertThat(classUnderTest.size())
+                            .isEqualTo(5);
+                }
+
+                @Test
+                void isEmpty_many_returnsFalse() {
+                    assertThat(classUnderTest.isEmpty())
+                            .isFalse();
+                }
             }
         }
     }
