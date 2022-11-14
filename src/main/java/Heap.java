@@ -25,6 +25,13 @@ public interface Heap<T extends Comparable<? super T>> extends Iterable<T> {
     T peek();
 
     /**
+     * Checks if the heap is empty.
+     *
+     * @return true if the heap is empty, false otherwise.
+     */
+    boolean isEmpty();
+
+    /**
      * Return the number of elements within the heap.
      *
      * @return Number of elements within the heap.
