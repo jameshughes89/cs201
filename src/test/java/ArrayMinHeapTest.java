@@ -82,4 +82,17 @@ public class ArrayMinHeapTest {
             }
         }
     }
+
+    @Nested
+    class WhenLarge {
+
+        @Test
+        void enqueue_large_successfullyExpandsCapacity() {
+            for (int i = 0; i < 1000; i++) {
+                classUnderTest.add(i);
+            }
+            assertThat(classUnderTest.size())
+                    .isEqualTo(1000);
+        }
+    }
 }
