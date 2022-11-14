@@ -29,6 +29,23 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         return false;
     }
 
+    @SuppressWarnings("unchecked")
+    private void expandCapacity() {
+        T[] newHeap = (T[]) new Comparable[heap.length * 2];
+        System.arraycopy(heap, 0, newHeap, 0, heap.length);
+        heap = newHeap;
+    }
+
+    private void bubbleUp(int currentIndex, int parentIndex) {
+        T temp = heap[parentIndex];
+        heap[parentIndex] = heap[currentIndex];
+        heap[currentIndex] = temp;
+    }
+
+    private int getParent(int index) {
+        return (index - 1) / 2;
+    }
+
     @Override
     public T remove() {
         return null;
