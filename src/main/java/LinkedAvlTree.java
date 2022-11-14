@@ -6,16 +6,16 @@ public class LinkedAvlTree<T extends Comparable<? super T>> implements BinarySea
     private Node<T> root;
 
     /**
-     * Create a new empty avl tree. The root element is set to null. 
+     * Create a new empty avl tree. The root element is set to null.
      */
-    public LinkedAvlTree(){
+    public LinkedAvlTree() {
         root = null;
         size = 0;
     }
 
     @Override
-    public void add(T element) {
-
+    public boolean add(T element) {
+        return false;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class LinkedAvlTree<T extends Comparable<? super T>> implements BinarySea
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.size == 0;
     }
 
     @Override

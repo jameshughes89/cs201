@@ -6,9 +6,10 @@ public interface BinarySearchTree<T extends Comparable<? super T>> extends Itera
      * Add an element to the tree such that the binary search tree property is maintained. Elements considered equal are
      * added to the right.
      *
-     * @param element Element to be added to the tree in the proper location
+     * @param element Element to be added to the tree in the proper location.
+     * @return True if the element was added successfully, False otherwise.
      */
-    void add(T element);
+    boolean add(T element);
 
     /**
      * Remove and return a specified element from the binary search tree such that the binary search tree property is
