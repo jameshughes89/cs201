@@ -21,8 +21,8 @@ public class ArrayMinHeapTest {
 
         @Test
         void size_empty_returnsZero() {
-            assertThat(classUnderTest)
-                    .hasSize(0);
+            assertThat(classUnderTest.size())
+                    .isEqualTo(0);
         }
 
         @Nested
