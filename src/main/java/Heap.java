@@ -1,11 +1,12 @@
-public interface Heap <T extends Comparable<? super T>> extends Iterable<T> {
+public interface Heap<T extends Comparable<? super T>> extends Iterable<T> {
 
     /**
      * Add the provided element to the heap such that the heap ordering is preserved.
      *
      * @param element Element to be added to the heap.
+     * @return True if the element was added successfully, False otherwise.
      */
-    public void add(T element);
+    public boolean add(T element);
 
     /**
      * Remove the element at the top of the heap. This may be the min or max element depending on the specific heap
@@ -29,5 +30,4 @@ public interface Heap <T extends Comparable<? super T>> extends Iterable<T> {
      * @return Number of elements within the heap.
      */
     public int size();
-
 }
