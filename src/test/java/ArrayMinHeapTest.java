@@ -37,14 +37,6 @@ public class ArrayMinHeapTest {
                     .isTrue();
         }
 
-        @Test
-        void add_empty_updatesHeap() {
-            classUnderTest.add(10);
-            assertThat(classUnderTest)
-                    .usingRecursiveComparison()
-                    .isNotEqualTo(preState);
-        }
-
         @Nested
         class WhenSingleton {
 
@@ -70,14 +62,6 @@ public class ArrayMinHeapTest {
             void add_singleton_returnsTrue() {
                 assertThat(classUnderTest.add(10))
                         .isTrue();
-            }
-
-            @Test
-            void add_singleton_updatesHeap() {
-                classUnderTest.add(10);
-                assertThat(classUnderTest)
-                        .usingRecursiveComparison()
-                        .isNotEqualTo(preState);
             }
 
             @Nested
@@ -112,14 +96,6 @@ public class ArrayMinHeapTest {
                 void add_many_returnsTrue() {
                     assertThat(classUnderTest.add(10))
                             .isTrue();
-                }
-
-                @Test
-                void add_many_updatesHeap() {
-                    classUnderTest.add(10);
-                    assertThat(classUnderTest)
-                            .usingRecursiveComparison()
-                            .isNotEqualTo(preState);
                 }
             }
         }
