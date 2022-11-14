@@ -1,6 +1,9 @@
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ArrayMinHeapTest {
 
@@ -17,9 +20,9 @@ public class ArrayMinHeapTest {
     class WhenEmpty {
 
         @Test
-        void size_empty_returnsZero(){
-            assertThat(classUnderTest.size())
-                    .isEqualTo(0);
+        void size_empty_returnsZero() {
+            assertThat(classUnderTest)
+                    .hasSize(0);
         }
 
         @Nested
@@ -30,9 +33,6 @@ public class ArrayMinHeapTest {
             class WhenMany {
 
             }
-
         }
-
     }
-
 }
