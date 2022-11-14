@@ -4,7 +4,7 @@ public interface Heap<T extends Comparable<? super T>> extends Iterable<T> {
      * Add the provided element to the heap such that the heap ordering is preserved.
      *
      * @param element Element to be added to the heap.
-     * @return True if the element was added successfully, False otherwise.
+     * @return true if the element was added successfully, false otherwise.
      */
     boolean add(T element);
 
