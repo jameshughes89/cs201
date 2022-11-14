@@ -31,6 +31,19 @@ public class ArrayMinHeapTest {
                     .isTrue();
         }
 
+        @Test
+        void add_empty_returnsTrue() {
+            assertThat(classUnderTest.add(10))
+                    .isTrue();
+        }
+
+        @Test
+        void add_empty_updatesHeap() {
+            classUnderTest.add(10);
+            assertThat(classUnderTest)
+                    .isNotEqualTo(preState);
+        }
+
         @Nested
         class WhenSingleton {
 
@@ -50,6 +63,19 @@ public class ArrayMinHeapTest {
             void isEmpty_singleton_returnsFalse() {
                 assertThat(classUnderTest.isEmpty())
                         .isFalse();
+            }
+
+            @Test
+            void add_singleton_returnsTrue() {
+                assertThat(classUnderTest.add(10))
+                        .isTrue();
+            }
+
+            @Test
+            void add_singleton_updatesHeap() {
+                classUnderTest.add(10);
+                assertThat(classUnderTest)
+                        .isNotEqualTo(preState);
             }
 
             @Nested
@@ -78,6 +104,19 @@ public class ArrayMinHeapTest {
                 void isEmpty_many_returnsFalse() {
                     assertThat(classUnderTest.isEmpty())
                             .isFalse();
+                }
+
+                @Test
+                void add_many_returnsTrue() {
+                    assertThat(classUnderTest.add(10))
+                            .isTrue();
+                }
+
+                @Test
+                void add_many_updatesHeap() {
+                    classUnderTest.add(10);
+                    assertThat(classUnderTest)
+                            .isNotEqualTo(preState);
                 }
             }
         }
