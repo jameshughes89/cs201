@@ -32,6 +32,11 @@ public class MinHeap<T extends Comparable<? super T>> implements Heap<T> {
     }
 
     @Override
+    public int size(){
+        return this.size;
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return null;
     }

@@ -23,4 +23,11 @@ public interface Heap <T extends Comparable<? super T>> extends Iterable<T> {
      */
     public T peek();
 
+    /**
+     * Return the number of elements within the heap.
+     *
+     * @return Number of elements within the heap.
+     */
+    public int size();
+
 }
