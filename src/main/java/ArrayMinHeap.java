@@ -47,10 +47,20 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         }
     }
 
-    private void bubbleDown() {
-
-
-
+    private void bubbleDown(int index) {
+        int swapTo = index;
+        int leftChild = getLeft(index);
+        int rightChild = getRight(index);
+        if (leftChild < size() && heap[swapTo].compareTo(heap[leftChild]) > 0){
+            swapTo = leftChild;
+        }
+        if (rightChild < size() && heap[swapTo].compareTo(heap[rightChild]) > 0){
+            swapTo = rightChild;
+        }
+        if (swapTo != index){
+            swap(index, swapTo);
+            bubbleDown(swapTo);
+        }
     }
 
     private void swap(int currentIndex, int parentIndex) {
@@ -74,8 +84,9 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         }
         T toReturn = heap[0];
         heap[0] = heap[size-1];
+        heap[size - 1] = null;
         size--;
-        bubbleDown();
+        bubbleDown(0);
         return toReturn;
     }
 
