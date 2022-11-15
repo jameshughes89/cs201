@@ -76,6 +76,20 @@ public class ArrayMinHeapTest {
                         .isTrue();
             }
 
+            @Test
+            void peek_singleton_returnsMinimumElement() {
+                assertThat(classUnderTest.peek())
+                        .isEqualTo(10);
+            }
+
+            @Test
+            void peek_singleton_unalteredHeap() {
+                classUnderTest.peek();
+                assertThat(classUnderTest)
+                        .usingRecursiveComparison()
+                        .isEqualTo(preState);
+            }
+
             @Nested
             @TestInstance(TestInstance.Lifecycle.PER_CLASS)
             class WhenMany {
@@ -108,6 +122,20 @@ public class ArrayMinHeapTest {
                 void add_many_returnsTrue() {
                     assertThat(classUnderTest.add(10))
                             .isTrue();
+                }
+
+                @Test
+                void peek_many_returnsMinimumElement() {
+                    assertThat(classUnderTest.peek())
+                            .isEqualTo(5);
+                }
+
+                @Test
+                void peek_many_unalteredHeap() {
+                    classUnderTest.peek();
+                    assertThat(classUnderTest)
+                            .usingRecursiveComparison()
+                            .isEqualTo(preState);
                 }
             }
         }
