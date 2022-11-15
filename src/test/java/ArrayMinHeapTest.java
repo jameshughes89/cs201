@@ -43,9 +43,7 @@ public class ArrayMinHeapTest {
         @Test
         void peek_empty_throwsException() {
             assertThatExceptionOfType(NoSuchElementException.class)
-                    .isThrownBy(
-                            () -> classUnderTest.peek()
-                    )
+                    .isThrownBy(classUnderTest::peek)
                     .withMessage("Peeking from empty heap");
         }
 
