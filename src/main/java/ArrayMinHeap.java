@@ -57,10 +57,9 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         return (index - 1) / 2;
     }
 
-    private int getLeft(int index) {return 2 * index;}
+    private int getLeft(int index) {return 2 * index + 1;}
 
-
-    private int getRight(int index) {return 2 * index + 1;}
+    private int getRight(int index) {return 2 * index + 2;}
 
     @Override
     public T remove() {
