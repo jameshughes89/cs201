@@ -160,13 +160,13 @@ public class ArrayMinHeapTest {
 
                 @Test
                 void remove_many_returnsElementsCorrectOrder() {
-                    SoftAssertions softly = new SoftAssertions();
-                    softly.assertThat(classUnderTest.remove()).isEqualTo(5);
-                    softly.assertThat(classUnderTest.remove()).isEqualTo(9);
-                    softly.assertThat(classUnderTest.remove()).isEqualTo(10);
-                    softly.assertThat(classUnderTest.remove()).isEqualTo(10);
-                    softly.assertThat(classUnderTest.remove()).isEqualTo(15);
-                    softly.assertAll();
+                    SoftAssertions softie = new SoftAssertions();
+                    softie.assertThat(classUnderTest.remove()).isEqualTo(5);
+                    softie.assertThat(classUnderTest.remove()).isEqualTo(9);
+                    softie.assertThat(classUnderTest.remove()).isEqualTo(10);
+                    softie.assertThat(classUnderTest.remove()).isEqualTo(10);
+                    softie.assertThat(classUnderTest.remove()).isEqualTo(15);
+                    softie.assertAll();
                 }
 
                 @Test
