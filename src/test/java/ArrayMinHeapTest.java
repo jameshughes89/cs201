@@ -1,3 +1,4 @@
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -47,6 +48,13 @@ public class ArrayMinHeapTest {
                     .withMessage("Peeking from empty heap");
         }
 
+        @Test
+        void remove_empty_throwsException() {
+            assertThatExceptionOfType(NoSuchElementException.class)
+                    .isThrownBy(classUnderTest::remove)
+                    .withMessage("Removing from empty heap");
+        }
+
         @Nested
         class WhenSingleton {
 
@@ -86,6 +94,20 @@ public class ArrayMinHeapTest {
                 assertThat(classUnderTest)
                         .usingRecursiveComparison()
                         .isEqualTo(preState);
+            }
+
+            @Test
+            void remove_singleton_returnsMinimumElement() {
+                assertThat(classUnderTest.remove())
+                        .isEqualTo(10);
+            }
+
+            @Test
+            void remove_singleton_emptyHeap() {
+                classUnderTest.remove();
+                assertThat(classUnderTest)
+                        .usingRecursiveComparison()
+                        .isEqualTo(new ArrayMinHeap());
             }
 
             @Nested
@@ -134,6 +156,25 @@ public class ArrayMinHeapTest {
                     assertThat(classUnderTest)
                             .usingRecursiveComparison()
                             .isEqualTo(preState);
+                }
+
+                @Test
+                void remove_many_returnsElementsCorrectOrder() {
+                    SoftAssertions softly = new SoftAssertions();
+                    softly.assertThat(classUnderTest.remove()).isEqualTo(5);
+                    softly.assertThat(classUnderTest.remove()).isEqualTo(9);
+                    softly.assertThat(classUnderTest.remove()).isEqualTo(10);
+                    softly.assertThat(classUnderTest.remove()).isEqualTo(10);
+                    softly.assertThat(classUnderTest.remove()).isEqualTo(15);
+                    softly.assertAll();
+                }
+
+                @Test
+                void remove_many_alterHeap() {
+                    classUnderTest.remove();
+                    assertThat(classUnderTest)
+                            .usingRecursiveComparison()
+                            .isNotEqualTo(preState);
                 }
             }
         }
