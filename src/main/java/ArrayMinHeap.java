@@ -47,6 +47,12 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         }
     }
 
+    private void bubbleDown(int index) {
+
+
+
+    }
+
     private void swap(int currentIndex, int parentIndex) {
         T temp = heap[parentIndex];
         heap[parentIndex] = heap[currentIndex];
