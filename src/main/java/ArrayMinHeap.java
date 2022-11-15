@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
@@ -63,7 +64,10 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
     @Override
     public T peek() {
-        return null;
+        if (isEmpty()) {
+            throw new NoSuchElementException("Peeking from empty heap");
+        }
+        return heap[0];
     }
 
     @Override

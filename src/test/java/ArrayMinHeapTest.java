@@ -3,7 +3,10 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.util.NoSuchElementException;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 
 public class ArrayMinHeapTest {
 
@@ -37,6 +40,13 @@ public class ArrayMinHeapTest {
                     .isTrue();
         }
 
+        @Test
+        void peek_empty_throwsException() {
+            assertThatExceptionOfType(NoSuchElementException.class)
+                    .isThrownBy(classUnderTest::peek)
+                    .withMessage("Peeking from empty heap");
+        }
+
         @Nested
         class WhenSingleton {
 
@@ -62,6 +72,20 @@ public class ArrayMinHeapTest {
             void add_singleton_returnsTrue() {
                 assertThat(classUnderTest.add(10))
                         .isTrue();
+            }
+
+            @Test
+            void peek_singleton_returnsMinimumElement() {
+                assertThat(classUnderTest.peek())
+                        .isEqualTo(10);
+            }
+
+            @Test
+            void peek_singleton_unalteredHeap() {
+                classUnderTest.peek();
+                assertThat(classUnderTest)
+                        .usingRecursiveComparison()
+                        .isEqualTo(preState);
             }
 
             @Nested
@@ -96,6 +120,20 @@ public class ArrayMinHeapTest {
                 void add_many_returnsTrue() {
                     assertThat(classUnderTest.add(10))
                             .isTrue();
+                }
+
+                @Test
+                void peek_many_returnsMinimumElement() {
+                    assertThat(classUnderTest.peek())
+                            .isEqualTo(5);
+                }
+
+                @Test
+                void peek_many_unalteredHeap() {
+                    classUnderTest.peek();
+                    assertThat(classUnderTest)
+                            .usingRecursiveComparison()
+                            .isEqualTo(preState);
                 }
             }
         }
