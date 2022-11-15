@@ -69,6 +69,9 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
     @Override
     public T remove() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Removing from empty heap");
+        }
         T toReturn = heap[0];
         heap[0] = heap[size-1];
         size--;
