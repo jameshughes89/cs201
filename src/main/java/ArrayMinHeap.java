@@ -47,7 +47,7 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         }
     }
 
-    private void bubbleDown(int index) {
+    private void bubbleDown() {
 
 
 
@@ -69,7 +69,11 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
 
     @Override
     public T remove() {
-        return null;
+        T toReturn = heap[0];
+        heap[0] = heap[size-1];
+        size--;
+        bubbleDown();
+        return toReturn;
     }
 
     @Override
