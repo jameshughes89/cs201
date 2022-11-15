@@ -3,7 +3,10 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.util.NoSuchElementException;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 
 public class ArrayMinHeapTest {
 
@@ -35,6 +38,15 @@ public class ArrayMinHeapTest {
         void add_empty_returnsTrue() {
             assertThat(classUnderTest.add(10))
                     .isTrue();
+        }
+
+        @Test
+        void peek_empty_throwsException() {
+            assertThatExceptionOfType(NoSuchElementException.class)
+                    .isThrownBy(
+                            () -> classUnderTest.peek()
+                    )
+                    .withMessage("Peeking from empty heap");
         }
 
         @Nested
