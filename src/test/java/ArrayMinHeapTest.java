@@ -40,12 +40,14 @@ public class ArrayMinHeapTest {
 
         @Test
         void peek_empty_throwsException() {
-            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::peek).withMessage("Peeking from empty heap");
+            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::peek)
+                    .withMessage("Peeking from empty heap");
         }
 
         @Test
         void remove_empty_throwsException() {
-            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::remove).withMessage("Removing from empty heap");
+            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::remove)
+                    .withMessage("Removing from empty heap");
         }
 
         @Nested
