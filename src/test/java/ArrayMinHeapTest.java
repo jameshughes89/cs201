@@ -1,4 +1,3 @@
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -160,13 +159,11 @@ public class ArrayMinHeapTest {
 
                 @Test
                 void remove_many_returnsElementsCorrectOrder() {
-                    SoftAssertions softie = new SoftAssertions();
-                    softie.assertThat(classUnderTest.remove()).isEqualTo(5);
-                    softie.assertThat(classUnderTest.remove()).isEqualTo(9);
-                    softie.assertThat(classUnderTest.remove()).isEqualTo(10);
-                    softie.assertThat(classUnderTest.remove()).isEqualTo(10);
-                    softie.assertThat(classUnderTest.remove()).isEqualTo(15);
-                    softie.assertAll();
+                    assertThat(classUnderTest.remove()).isEqualTo(5);
+                    assertThat(classUnderTest.remove()).isEqualTo(9);
+                    assertThat(classUnderTest.remove()).isEqualTo(10);
+                    assertThat(classUnderTest.remove()).isEqualTo(10);
+                    assertThat(classUnderTest.remove()).isEqualTo(15);
                 }
 
                 @Test
