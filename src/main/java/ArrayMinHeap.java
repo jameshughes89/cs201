@@ -51,13 +51,13 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         int swapTo = index;
         int leftChild = getLeft(index);
         int rightChild = getRight(index);
-        if (leftChild < size() && heap[swapTo].compareTo(heap[leftChild]) > 0){
+        if (leftChild < size() && heap[swapTo].compareTo(heap[leftChild]) > 0) {
             swapTo = leftChild;
         }
-        if (rightChild < size() && heap[swapTo].compareTo(heap[rightChild]) > 0){
+        if (rightChild < size() && heap[swapTo].compareTo(heap[rightChild]) > 0) {
             swapTo = rightChild;
         }
-        if (swapTo != index){
+        if (swapTo != index) {
             swap(index, swapTo);
             bubbleDown(swapTo);
         }
@@ -73,9 +73,13 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
         return (index - 1) / 2;
     }
 
-    private int getLeft(int index) {return 2 * index + 1;}
+    private int getLeft(int index) {
+        return 2 * index + 1;
+    }
 
-    private int getRight(int index) {return 2 * index + 2;}
+    private int getRight(int index) {
+        return 2 * index + 2;
+    }
 
     @Override
     public T remove() {
@@ -83,7 +87,7 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
             throw new NoSuchElementException("Removing from empty heap");
         }
         T toReturn = heap[0];
-        heap[0] = heap[size-1];
+        heap[0] = heap[size - 1];
         heap[size - 1] = null;
         size--;
         bubbleDown(0);
