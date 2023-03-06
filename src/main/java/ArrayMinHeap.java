@@ -18,7 +18,7 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
     /**
      * Create a new empty heap with the array container being created with the specified capacity.
      *
-     * @param initialCapacity
+     * @param initialCapacity Starting capacity of the fixed length array
      */
     public ArrayMinHeap(int initialCapacity) {
         heap = (T[]) new Comparable[initialCapacity];
@@ -39,8 +39,7 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
     private void bubbleUp(int index) {
         int currentIndex = index;
         int parentIndex = getParent(size);
-        while (currentIndex != 0
-                && heap[currentIndex].compareTo(heap[parentIndex]) < 0) {
+        while (currentIndex != 0 && heap[currentIndex].compareTo(heap[parentIndex]) < 0) {
             swap(currentIndex, parentIndex);
             currentIndex = parentIndex;
             parentIndex = getParent(currentIndex);
@@ -65,7 +64,7 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
     @Override
     public T peek() {
         if (isEmpty()) {
-            throw new NoSuchElementException("Peeking from empty heap");
+            throw new NoSuchElementException("Empty heap");
         }
         return heap[0];
     }
