@@ -24,26 +24,22 @@ public class ArrayMinHeapTest {
 
         @Test
         void size_empty_returnsZero() {
-            assertThat(classUnderTest.size())
-                    .isEqualTo(0);
+            assertThat(classUnderTest.size()).isEqualTo(0);
         }
 
         @Test
         void isEmpty_empty_returnsTrue() {
-            assertThat(classUnderTest.isEmpty())
-                    .isTrue();
+            assertThat(classUnderTest.isEmpty()).isTrue();
         }
 
         @Test
         void add_empty_returnsTrue() {
-            assertThat(classUnderTest.add(10))
-                    .isTrue();
+            assertThat(classUnderTest.add(10)).isTrue();
         }
 
         @Test
         void peek_empty_throwsException() {
-            assertThatExceptionOfType(NoSuchElementException.class)
-                    .isThrownBy(classUnderTest::peek)
+            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::peek)
                     .withMessage("Peeking from empty heap");
         }
 
@@ -58,34 +54,28 @@ public class ArrayMinHeapTest {
 
             @Test
             void size_singleton_returnsOne() {
-                assertThat(classUnderTest.size())
-                        .isEqualTo(1);
+                assertThat(classUnderTest.size()).isEqualTo(1);
             }
 
             @Test
             void isEmpty_singleton_returnsFalse() {
-                assertThat(classUnderTest.isEmpty())
-                        .isFalse();
+                assertThat(classUnderTest.isEmpty()).isFalse();
             }
 
             @Test
             void add_singleton_returnsTrue() {
-                assertThat(classUnderTest.add(10))
-                        .isTrue();
+                assertThat(classUnderTest.add(10)).isTrue();
             }
 
             @Test
             void peek_singleton_returnsMinimumElement() {
-                assertThat(classUnderTest.peek())
-                        .isEqualTo(10);
+                assertThat(classUnderTest.peek()).isEqualTo(10);
             }
 
             @Test
             void peek_singleton_unalteredHeap() {
                 classUnderTest.peek();
-                assertThat(classUnderTest)
-                        .usingRecursiveComparison()
-                        .isEqualTo(preState);
+                assertThat(classUnderTest).usingRecursiveComparison().isEqualTo(preState);
             }
 
             @Nested
@@ -106,34 +96,28 @@ public class ArrayMinHeapTest {
 
                 @Test
                 void size_many_returnsCorrectSize() {
-                    assertThat(classUnderTest.size())
-                            .isEqualTo(5);
+                    assertThat(classUnderTest.size()).isEqualTo(5);
                 }
 
                 @Test
                 void isEmpty_many_returnsFalse() {
-                    assertThat(classUnderTest.isEmpty())
-                            .isFalse();
+                    assertThat(classUnderTest.isEmpty()).isFalse();
                 }
 
                 @Test
                 void add_many_returnsTrue() {
-                    assertThat(classUnderTest.add(10))
-                            .isTrue();
+                    assertThat(classUnderTest.add(10)).isTrue();
                 }
 
                 @Test
                 void peek_many_returnsMinimumElement() {
-                    assertThat(classUnderTest.peek())
-                            .isEqualTo(5);
+                    assertThat(classUnderTest.peek()).isEqualTo(5);
                 }
 
                 @Test
                 void peek_many_unalteredHeap() {
                     classUnderTest.peek();
-                    assertThat(classUnderTest)
-                            .usingRecursiveComparison()
-                            .isEqualTo(preState);
+                    assertThat(classUnderTest).usingRecursiveComparison().isEqualTo(preState);
                 }
             }
         }
@@ -147,8 +131,7 @@ public class ArrayMinHeapTest {
             for (int i = 0; i < 1000; i++) {
                 classUnderTest.add(i);
             }
-            assertThat(classUnderTest.size())
-                    .isEqualTo(1000);
+            assertThat(classUnderTest.size()).isEqualTo(1000);
         }
     }
 }
