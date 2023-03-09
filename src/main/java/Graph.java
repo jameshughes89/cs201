@@ -46,4 +46,13 @@ public interface Graph<T> {
      * @return A set of the edges incident on the specified node
      */
     Set<Edge<T>> getEdges(T node);
+
+    /**
+     * Return the degree of the specified node. The degree is the number of edges the node has. If the specified node
+     * has an edge to itself, that edge is counted twice.  
+     *
+     * @param node The node to get the degree of
+     * @return The degree of the specified node
+     */
+    int getDegree(T node);
 }
