@@ -7,14 +7,14 @@
 public interface Edge<T> {
 
     /**
-     * Return the u "node" of the edge.
+     * Return the u node of the edge.
      *
      * @return The u node
      */
     T getU();
 
     /**
-     * Return the v "node" of the edge.
+     * Return the v node of the edge.
      *
      * @return The v node
      */
