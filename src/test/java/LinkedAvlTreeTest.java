@@ -21,13 +21,11 @@ public class LinkedAvlTreeTest {
 
         @Test
         void size_empty_returnsZero() {
-            assertThat(classUnderTest.size())
-                    .isEqualTo(0);
+            assertThat(classUnderTest.size()).isEqualTo(0);
         }
 
         void isEmpty_empty_returnsTrue() {
-            assertThat(classUnderTest.isEmpty())
-                    .isTrue();
+            assertThat(classUnderTest.isEmpty()).isTrue();
         }
 
         @Nested
