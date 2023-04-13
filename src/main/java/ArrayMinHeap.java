@@ -39,8 +39,7 @@ public class ArrayMinHeap<T extends Comparable<? super T>> implements Heap<T> {
     private void bubbleUp(int index) {
         int currentIndex = index;
         int parentIndex = getParent(size);
-        while (currentIndex != 0
-                && heap[currentIndex].compareTo(heap[parentIndex]) < 0) {
+        while (currentIndex != 0 && heap[currentIndex].compareTo(heap[parentIndex]) < 0) {
             swap(currentIndex, parentIndex);
             currentIndex = parentIndex;
             parentIndex = getParent(currentIndex);
