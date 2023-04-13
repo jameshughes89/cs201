@@ -7,7 +7,8 @@ import java.util.NoSuchElementException;
  * <p>
  * If no Comparator is provided to the constructor, the heap will order the elements based on the natural ordering of
  * the elements. This means that the elements within the heap must be comparable. If a Comparator is provided, the
- * elements are ordered based on the Comparator, regardless of the natural ordering of the elements.
+ * elements do not need to be comparable as the elements are ordered based on the Comparator, regardless of the
+ * natural ordering of the elements that may exist.
  *
  * @param <T> Type of elements that are to be in the heap. If a comparator is not provided, then T must be comparable
  *            in order to use the natural ordering of the elements.
