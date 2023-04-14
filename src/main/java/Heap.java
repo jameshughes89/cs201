@@ -151,4 +151,18 @@ public class Heap<T> {
     int size() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+        for (int i = 0; i < size(); i++) {
+            stringBuilder.append(heap[i]);
+            if (i < size() - 1) {
+                stringBuilder.append(", ");
+            }
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
+    }
 }
