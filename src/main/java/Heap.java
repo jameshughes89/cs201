@@ -54,19 +54,18 @@ public class Heap<T> {
     }
 
     private void bubbleDown(int index) {
-        int largerChild = index;
+        int swapChild = index;
         int leftChild = getLeft(index);
         int rightChild = getRight(index);
-        int comparison = comparator.compare(heap[largerChild], heap[leftChild]);
-        if (leftChild < size() && comparison > 0) {
-            largerChild = leftChild;
+        if (leftChild < size() && comparator.compare(heap[swapChild], heap[leftChild]) > 0) {
+            swapChild = leftChild;
         }
-        if (rightChild < size() && comparison > 0) {
-            largerChild = rightChild;
+        if (rightChild < size() && comparator.compare(heap[swapChild], heap[rightChild]) > 0) {
+            swapChild = rightChild;
         }
-        if (largerChild != index) {
-            swap(index, largerChild);
-            bubbleDown(largerChild);
+        if (swapChild != index) {
+            swap(index, swapChild);
+            bubbleDown(swapChild);
         }
     }
 
