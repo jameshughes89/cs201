@@ -2,8 +2,13 @@ import com.google.common.testing.EqualsTester;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.Comparator;
+import java.util.NoSuchElementException;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 
 class HeapTest {
 
@@ -99,6 +104,60 @@ class HeapTest {
     @Nested
     class WhenEmpty {
 
+        @Test
+        void add_empty_returnsTrue() {
+            assertThat(classUnderTest.add(20)).isTrue();
+        }
 
+        @Test
+        void remove_empty_throwsNoSuchElementException() {
+            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::remove);
+        }
+
+        @Test
+        void peek_empty_throwsNoSuchElementException() {
+            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::peek);
+        }
+
+        @Test
+        void size_empty_returnsZero() {
+            assertThat(classUnderTest.size()).isEqualTo(0);
+        }
+
+        @Test
+        void isEmpty_empty_returnsTrue() {
+            assertThat(classUnderTest.isEmpty()).isTrue();
+        }
+
+        @Nested
+        class WhenSingleton {
+
+            @BeforeEach
+            void addSingleton() {
+                classUnderTest.add(10);
+                preState.add(10);
+            }
+
+            @Nested
+            @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+            class WhenMany {
+
+                @BeforeEach
+                void addMany() {
+                    classUnderTest.add(20);
+                    classUnderTest.add(20);
+                    classUnderTest.add(10);
+                    classUnderTest.add(5);
+                    classUnderTest.add(15);
+                    preState.add(20);
+                    preState.add(20);
+                    preState.add(10);
+                    preState.add(5);
+                    preState.add(15);
+                }
+
+
+            }
+        }
     }
 }
