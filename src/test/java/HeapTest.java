@@ -131,6 +131,11 @@ class HeapTest {
             assertThat(classUnderTest.isEmpty()).isTrue();
         }
 
+        @Test
+        void toString_empty_returnsString() {
+            assertThat(classUnderTest.toString()).isEqualTo("[]");
+        }
+
         @Nested
         class WhenSingleton {
 
@@ -175,6 +180,11 @@ class HeapTest {
             @Test
             void isEmpty_singleton_returnsFalse() {
                 assertThat(classUnderTest.isEmpty()).isFalse();
+            }
+
+            @Test
+            void toString_singleton_returnsString() {
+                assertThat(classUnderTest.toString()).isEqualTo("[10]");
             }
 
             @Nested
