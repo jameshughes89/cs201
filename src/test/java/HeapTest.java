@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.awt.*;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
@@ -15,11 +16,9 @@ class HeapTest {
     private Heap<Integer> classUnderTest;
     private Heap<Integer> preState;
 
-    // TODO --- Tests for non comparable types!?
-
     @Test
     @SuppressWarnings("UnstableApiUsage")
-    public void equals_verify_contract() {
+    void equals_verify_contract() {
         Heap<Integer> emptyA = new Heap<>();
         Heap<Integer> emptyB = new Heap<>();
         Heap<Integer> emptyComparator = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
@@ -95,6 +94,14 @@ class HeapTest {
                 .addEqualityGroup(unequalSomeEqual)
                 .addEqualityGroup(unequalDifferentComparator)
                 .testEquals();
+    }
+
+
+    @Test
+    void add_nonComparableType_throwsClassCastException() {
+        Heap<Color> trouble = new Heap<>();
+        trouble.add(new Color(0));
+        assertThatExceptionOfType(ClassCastException.class).isThrownBy(() -> trouble.add(new Color(0)));
     }
 
     @Nested
