@@ -15,6 +15,8 @@ class HeapTest {
     private Heap<Integer> classUnderTest;
     private Heap<Integer> preState;
 
+    // TODO --- Tests for non comparable types!?
+
     @Test
     @SuppressWarnings("UnstableApiUsage")
     public void equals_verify_contract() {
@@ -106,7 +108,7 @@ class HeapTest {
 
         @Test
         void add_empty_returnsTrue() {
-            assertThat(classUnderTest.add(20)).isTrue();
+            assertThat(classUnderTest.add(99)).isTrue();
         }
 
         @Test
@@ -136,6 +138,43 @@ class HeapTest {
             void addSingleton() {
                 classUnderTest.add(10);
                 preState.add(10);
+            }
+
+            @Test
+            void add_singleton_returnsTrue() {
+                assertThat(classUnderTest.add(99)).isTrue();
+            }
+
+            @Test
+            void remove_singleton_returnsElement() {
+                assertThat(classUnderTest.remove()).isEqualTo(10);
+            }
+
+            @Test
+            void remove_singleton_emptyHeap() {
+                classUnderTest.remove();
+                assertThat(classUnderTest).isEqualTo(new Heap<>());
+            }
+
+            @Test
+            void peek_singleton_returnsElement() {
+                assertThat(classUnderTest.peek()).isEqualTo(10);
+            }
+
+            @Test
+            void peek_singleton_unchanged() {
+                classUnderTest.peek();
+                assertThat(classUnderTest).isEqualTo(preState);
+            }
+
+            @Test
+            void size_singleton_returnsSzie() {
+                assertThat(classUnderTest.size()).isEqualTo(1);
+            }
+
+            @Test
+            void isEmpty_singleton_returnsFalse() {
+                assertThat(classUnderTest.isEmpty()).isFalse();
             }
 
             @Nested
