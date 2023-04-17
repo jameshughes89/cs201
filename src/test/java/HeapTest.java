@@ -97,160 +97,328 @@ class HeapTest {
                 .testEquals();
     }
 
-    @BeforeEach
-    void createClassUnderTest() {
-        classUnderTest = new Heap<>();
-        preState = new Heap<>();
-    }
-
     @Nested
-    class WhenEmpty {
+    class DefaultConstructor {
 
-        @Test
-        void add_empty_returnsTrue() {
-            assertThat(classUnderTest.add(99)).isTrue();
-        }
-
-        @Test
-        void remove_empty_throwsNoSuchElementException() {
-            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::remove);
-        }
-
-        @Test
-        void peek_empty_throwsNoSuchElementException() {
-            assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::peek);
-        }
-
-        @Test
-        void size_empty_returnsZero() {
-            assertThat(classUnderTest.size()).isEqualTo(0);
-        }
-
-        @Test
-        void isEmpty_empty_returnsTrue() {
-            assertThat(classUnderTest.isEmpty()).isTrue();
-        }
-
-        @Test
-        void toString_empty_returnsString() {
-            assertThat(classUnderTest.toString()).isEqualTo("[]");
+        @BeforeEach
+        void createClassUnderTest() {
+            classUnderTest = new Heap<>();
+            preState = new Heap<>();
         }
 
         @Nested
-        class WhenSingleton {
-
-            @BeforeEach
-            void addSingleton() {
-                classUnderTest.add(10);
-                preState.add(10);
-            }
+        class WhenEmpty {
 
             @Test
-            void add_singleton_returnsTrue() {
+            void add_empty_returnsTrue() {
                 assertThat(classUnderTest.add(99)).isTrue();
             }
 
             @Test
-            void remove_singleton_returnsElement() {
-                assertThat(classUnderTest.remove()).isEqualTo(10);
+            void remove_empty_throwsNoSuchElementException() {
+                assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::remove);
             }
 
             @Test
-            void remove_singleton_emptyHeap() {
-                classUnderTest.remove();
-                assertThat(classUnderTest).isEqualTo(new Heap<>());
+            void peek_empty_throwsNoSuchElementException() {
+                assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::peek);
             }
 
             @Test
-            void peek_singleton_returnsElement() {
-                assertThat(classUnderTest.peek()).isEqualTo(10);
+            void size_empty_returnsZero() {
+                assertThat(classUnderTest.size()).isEqualTo(0);
             }
 
             @Test
-            void peek_singleton_unchanged() {
-                classUnderTest.peek();
-                assertThat(classUnderTest).isEqualTo(preState);
+            void isEmpty_empty_returnsTrue() {
+                assertThat(classUnderTest.isEmpty()).isTrue();
             }
 
             @Test
-            void size_singleton_returnsSize() {
-                assertThat(classUnderTest.size()).isEqualTo(1);
-            }
-
-            @Test
-            void isEmpty_singleton_returnsFalse() {
-                assertThat(classUnderTest.isEmpty()).isFalse();
-            }
-
-            @Test
-            void toString_singleton_returnsString() {
-                assertThat(classUnderTest.toString()).isEqualTo("[10]");
+            void toString_empty_returnsString() {
+                assertThat(classUnderTest.toString()).isEqualTo("[]");
             }
 
             @Nested
-            @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-            class WhenMany {
+            class WhenSingleton {
 
                 @BeforeEach
-                void addMany() {
-                    classUnderTest.add(20);
-                    classUnderTest.add(20);
+                void addSingleton() {
                     classUnderTest.add(10);
-                    classUnderTest.add(5);
-                    classUnderTest.add(15);
-                    preState.add(20);
-                    preState.add(20);
                     preState.add(10);
-                    preState.add(5);
-                    preState.add(15);
                 }
 
                 @Test
-                void add_many_returnsTrue() {
+                void add_singleton_returnsTrue() {
                     assertThat(classUnderTest.add(99)).isTrue();
                 }
 
                 @Test
-                void remove_many_returnsElement() {
-                    assertThat(classUnderTest.remove()).isEqualTo(5);
+                void remove_singleton_returnsElement() {
+                    assertThat(classUnderTest.remove()).isEqualTo(10);
                 }
 
                 @Test
-                void remove_many_change() {
-                    Heap<Integer> expected = new Heap<>();
-                    expected.add(10);
-                    expected.add(10);
-                    expected.add(15);
-                    expected.add(20);
-                    expected.add(20);
+                void remove_singleton_emptyHeap() {
                     classUnderTest.remove();
-                    assertThat(classUnderTest).isEqualTo(expected);
+                    assertThat(classUnderTest).isEqualTo(new Heap<>());
                 }
 
                 @Test
-                void peek_many_returnsElement() {
-                    assertThat(classUnderTest.peek()).isEqualTo(5);
+                void peek_singleton_returnsElement() {
+                    assertThat(classUnderTest.peek()).isEqualTo(10);
                 }
 
                 @Test
-                void peek_many_unchanged() {
+                void peek_singleton_unchanged() {
                     classUnderTest.peek();
                     assertThat(classUnderTest).isEqualTo(preState);
                 }
 
                 @Test
-                void size_many_returnsSize() {
-                    assertThat(classUnderTest.size()).isEqualTo(6);
+                void size_singleton_returnsSize() {
+                    assertThat(classUnderTest.size()).isEqualTo(1);
                 }
 
                 @Test
-                void isEmpty_many_returnsFalse() {
+                void isEmpty_singleton_returnsFalse() {
                     assertThat(classUnderTest.isEmpty()).isFalse();
                 }
 
                 @Test
-                void toString_many_returnsString() {
-                    assertThat(classUnderTest.toString()).isEqualTo("[5, 10, 15, 20, 10, 20]");
+                void toString_singleton_returnsString() {
+                    assertThat(classUnderTest.toString()).isEqualTo("[10]");
+                }
+
+                @Nested
+                @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+                class WhenMany {
+
+                    @BeforeEach
+                    void addMany() {
+                        classUnderTest.add(20);
+                        classUnderTest.add(20);
+                        classUnderTest.add(10);
+                        classUnderTest.add(5);
+                        classUnderTest.add(15);
+                        preState.add(20);
+                        preState.add(20);
+                        preState.add(10);
+                        preState.add(5);
+                        preState.add(15);
+                    }
+
+                    @Test
+                    void add_many_returnsTrue() {
+                        assertThat(classUnderTest.add(99)).isTrue();
+                    }
+
+                    @Test
+                    void remove_many_returnsElement() {
+                        assertThat(classUnderTest.remove()).isEqualTo(5);
+                    }
+
+                    @Test
+                    void remove_many_change() {
+                        Heap<Integer> expected = new Heap<>();
+                        expected.add(10);
+                        expected.add(10);
+                        expected.add(15);
+                        expected.add(20);
+                        expected.add(20);
+                        classUnderTest.remove();
+                        assertThat(classUnderTest).isEqualTo(expected);
+                    }
+
+                    @Test
+                    void peek_many_returnsElement() {
+                        assertThat(classUnderTest.peek()).isEqualTo(5);
+                    }
+
+                    @Test
+                    void peek_many_unchanged() {
+                        classUnderTest.peek();
+                        assertThat(classUnderTest).isEqualTo(preState);
+                    }
+
+                    @Test
+                    void size_many_returnsSize() {
+                        assertThat(classUnderTest.size()).isEqualTo(6);
+                    }
+
+                    @Test
+                    void isEmpty_many_returnsFalse() {
+                        assertThat(classUnderTest.isEmpty()).isFalse();
+                    }
+
+                    @Test
+                    void toString_many_returnsString() {
+                        assertThat(classUnderTest.toString()).isEqualTo("[5, 10, 15, 20, 10, 20]");
+                    }
+                }
+            }
+        }
+    }
+
+    @Nested
+    class ComparatorConstructor {
+
+        @BeforeEach
+        void createClassUnderTest() {
+            classUnderTest = new Heap<>((Comparator<Integer>) Comparator.naturalOrder().reversed());
+            preState = new Heap<>((Comparator<Integer>) Comparator.naturalOrder().reversed());
+        }
+
+        @Nested
+        class WhenEmpty {
+
+            @Test
+            void add_empty_returnsTrue() {
+                assertThat(classUnderTest.add(99)).isTrue();
+            }
+
+            @Test
+            void remove_empty_throwsNoSuchElementException() {
+                assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::remove);
+            }
+
+            @Test
+            void peek_empty_throwsNoSuchElementException() {
+                assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(classUnderTest::peek);
+            }
+
+            @Test
+            void size_empty_returnsZero() {
+                assertThat(classUnderTest.size()).isEqualTo(0);
+            }
+
+            @Test
+            void isEmpty_empty_returnsTrue() {
+                assertThat(classUnderTest.isEmpty()).isTrue();
+            }
+
+            @Test
+            void toString_empty_returnsString() {
+                assertThat(classUnderTest.toString()).isEqualTo("[]");
+            }
+
+            @Nested
+            class WhenSingleton {
+
+                @BeforeEach
+                void addSingleton() {
+                    classUnderTest.add(10);
+                    preState.add(10);
+                }
+
+                @Test
+                void add_singleton_returnsTrue() {
+                    assertThat(classUnderTest.add(99)).isTrue();
+                }
+
+                @Test
+                void remove_singleton_returnsElement() {
+                    assertThat(classUnderTest.remove()).isEqualTo(10);
+                }
+
+                @Test
+                void remove_singleton_emptyHeap() {
+                    classUnderTest.remove();
+                    assertThat(classUnderTest).isEqualTo(new Heap<>((Comparator<Integer>) Comparator.naturalOrder()
+                            .reversed()));
+                }
+
+                @Test
+                void peek_singleton_returnsElement() {
+                    assertThat(classUnderTest.peek()).isEqualTo(10);
+                }
+
+                @Test
+                void peek_singleton_unchanged() {
+                    classUnderTest.peek();
+                    assertThat(classUnderTest).isEqualTo(preState);
+                }
+
+                @Test
+                void size_singleton_returnsSize() {
+                    assertThat(classUnderTest.size()).isEqualTo(1);
+                }
+
+                @Test
+                void isEmpty_singleton_returnsFalse() {
+                    assertThat(classUnderTest.isEmpty()).isFalse();
+                }
+
+                @Test
+                void toString_singleton_returnsString() {
+                    assertThat(classUnderTest.toString()).isEqualTo("[10]");
+                }
+
+                @Nested
+                @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+                class WhenMany {
+
+                    @BeforeEach
+                    void addMany() {
+                        classUnderTest.add(20);
+                        classUnderTest.add(20);
+                        classUnderTest.add(10);
+                        classUnderTest.add(5);
+                        classUnderTest.add(15);
+                        preState.add(20);
+                        preState.add(20);
+                        preState.add(10);
+                        preState.add(5);
+                        preState.add(15);
+                    }
+
+                    @Test
+                    void add_many_returnsTrue() {
+                        assertThat(classUnderTest.add(99)).isTrue();
+                    }
+
+                    @Test
+                    void remove_many_returnsElement() {
+                        assertThat(classUnderTest.remove()).isEqualTo(20);
+                    }
+
+                    @Test
+                    void remove_many_change() {
+                        Heap<Integer> expected = new Heap<>((Comparator<Integer>) Comparator.naturalOrder().reversed());
+                        expected.add(20);
+                        expected.add(10);
+                        expected.add(15);
+                        expected.add(10);
+                        expected.add(5);
+                        classUnderTest.remove();
+                        assertThat(classUnderTest).isEqualTo(expected);
+                    }
+
+                    @Test
+                    void peek_many_returnsElement() {
+                        assertThat(classUnderTest.peek()).isEqualTo(20);
+                    }
+
+                    @Test
+                    void peek_many_unchanged() {
+                        classUnderTest.peek();
+                        assertThat(classUnderTest).isEqualTo(preState);
+                    }
+
+                    @Test
+                    void size_many_returnsSize() {
+                        assertThat(classUnderTest.size()).isEqualTo(6);
+                    }
+
+                    @Test
+                    void isEmpty_many_returnsFalse() {
+                        assertThat(classUnderTest.isEmpty()).isFalse();
+                    }
+
+                    @Test
+                    void toString_many_returnsString() {
+                        assertThat(classUnderTest.toString()).isEqualTo("[20, 10, 20, 10, 5, 15]");
+                    }
                 }
             }
         }
