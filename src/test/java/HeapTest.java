@@ -173,7 +173,7 @@ class HeapTest {
             }
 
             @Test
-            void size_singleton_returnsSzie() {
+            void size_singleton_returnsSize() {
                 assertThat(classUnderTest.size()).isEqualTo(1);
             }
 
@@ -205,7 +205,53 @@ class HeapTest {
                     preState.add(15);
                 }
 
+                @Test
+                void add_many_returnsTrue() {
+                    assertThat(classUnderTest.add(99)).isTrue();
+                }
 
+                @Test
+                void remove_many_returnsElement() {
+                    assertThat(classUnderTest.remove()).isEqualTo(5);
+                }
+
+                @Test
+                void remove_many_change() {
+                    Heap<Integer> expected = new Heap<>();
+                    expected.add(10);
+                    expected.add(10);
+                    expected.add(15);
+                    expected.add(20);
+                    expected.add(20);
+                    classUnderTest.remove();
+                    assertThat(classUnderTest).isEqualTo(expected);
+                }
+
+                @Test
+                void peek_many_returnsElement() {
+                    assertThat(classUnderTest.peek()).isEqualTo(5);
+                }
+
+                @Test
+                void peek_many_unchanged() {
+                    classUnderTest.peek();
+                    assertThat(classUnderTest).isEqualTo(preState);
+                }
+
+                @Test
+                void size_many_returnsSize() {
+                    assertThat(classUnderTest.size()).isEqualTo(6);
+                }
+
+                @Test
+                void isEmpty_many_returnsFalse() {
+                    assertThat(classUnderTest.isEmpty()).isFalse();
+                }
+
+                @Test
+                void toString_many_returnsString() {
+                    assertThat(classUnderTest.toString()).isEqualTo("[5, 10, 15, 20, 10, 20]");
+                }
             }
         }
     }
