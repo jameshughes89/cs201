@@ -19,8 +19,8 @@ public class LinkedAvlTree<T extends Comparable<? super T>> implements BinarySea
     }
 
     @Override
-    public T remove(T element) {
-        return null;
+    public boolean remove(T element) {
+        return false;
     }
 
     @Override
