@@ -19,11 +19,10 @@ import java.util.Set;
 public interface Graph<T> {
 
     /**
-     * Adds the specified node to the graph.
+     * Adds the specified node to the graph. If the node already exists, the graph remains unchanged.
      *
      * @param node The node to be added to the graph
-     * @return True if the node was added successfully
-     * @throws IllegalArgumentException If the specified node already exists within the graph
+     * @return True if the node was added successfully, false otherwise
      */
     boolean addNode(T node);
 
@@ -60,11 +59,11 @@ public interface Graph<T> {
     Set<Edge<T>> getEdges();
 
     /**
-     * Adds the specified edge to the graph between existing nodes. If the graph is undirected, the edge will be added
-     * in both directions.
+     * Adds the specified edge to the graph between existing nodes. If the edge already exists, the graph remains
+     * unchanged. If the graph is undirected, the edge will be added in both directions.
      *
      * @param edge The edge to be added to the graph
-     * @return True if the edge was added successfully
+     * @return True if the edge was added , false otherwise
      * @throws IllegalArgumentException If the edge connects nonexistent nodes within the graph
      */
     boolean addEdge(Edge<T> edge);
