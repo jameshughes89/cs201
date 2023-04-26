@@ -63,7 +63,7 @@ public interface Graph<T> {
      * unchanged. If the graph is undirected, the edge will be added in both directions.
      *
      * @param edge The edge to be added to the graph
-     * @return True if the edge was added , false otherwise
+     * @return True if the edge was added, false otherwise
      * @throws IllegalArgumentException If the edge connects nonexistent nodes within the graph
      */
     boolean addEdge(Edge<T> edge);
