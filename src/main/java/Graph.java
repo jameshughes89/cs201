@@ -19,6 +19,24 @@ import java.util.Set;
 public interface Graph<T> {
 
     /**
+     * Adds the specified node to the graph.
+     *
+     * @param node The node to be added to the graph
+     * @return True if the node was added successfully
+     * @throws IllegalArgumentException If the specified node already exists within the graph
+     */
+    boolean addNode(T node);
+
+    /**
+     * Removes the specified node from the graph. All edges incident on the node are also removed.
+     *
+     * @param node The node to be removed from the graph
+     * @return True if the node was removed successfully
+     * @throws NoSuchElementException If the specified node does not exist within the graph
+     */
+    boolean removeNode(T node);
+
+    /**
      * Return a set of all the nodes within the graph.
      *
      * @return A set of the nodes within the graph
@@ -40,6 +58,26 @@ public interface Graph<T> {
      * @return A set of the edges within the graph
      */
     Set<Edge<T>> getEdges();
+
+    /**
+     * Adds the specified edge to the graph between existing nodes. If the graph is undirected, the edge will be added
+     * in both directions.
+     *
+     * @param edge The edge to be added to the graph
+     * @return True if the edge was added successfully
+     * @throws IllegalArgumentException If the edge connects nonexistent nodes within the graph
+     */
+    boolean addEdge(Edge<T> edge);
+
+    /**
+     * Removes the specified edge from the graph. If the graph is undirected, the edge will be removed in both
+     * directions.
+     *
+     * @param edge The edge to be removed from the graph
+     * @return True if the edge was removed successfully
+     * @throws NoSuchElementException If the specified edge does not exist within the graph
+     */
+    boolean removeEdge(Edge<T> edge);
 
     /**
      * Return a set of all the edges (Edge objects) incident on the specified node.
