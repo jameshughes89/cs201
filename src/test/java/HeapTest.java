@@ -1,4 +1,3 @@
-import com.google.common.testing.EqualsTester;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -6,6 +5,7 @@ import org.junit.jupiter.api.TestInstance;
 
 import java.util.Comparator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
@@ -15,75 +15,16 @@ class HeapTest {
     private Heap<Integer> classUnderTest;
     private Heap<Integer> preState;
 
-    @Test
-    @SuppressWarnings("UnstableApiUsage")
-    void equals_verify_contract() {
-        Heap<Integer> emptyA = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        Heap<Integer> emptyB = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-
-        Heap<Integer> singletonA = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        Heap<Integer> singletonB = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        singletonA.add(10);
-        singletonB.add(10);
-
-        Heap<Integer> manyA = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        Heap<Integer> manyB = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        manyA.add(10);
-        manyA.add(20);
-        manyA.add(10);
-        manyA.add(5);
-        manyA.add(15);
-        manyB.add(10);
-        manyB.add(20);
-        manyB.add(10);
-        manyB.add(5);
-        manyB.add(15);
-
-        Heap<Integer> unequalDifferentValues = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        unequalDifferentValues.add(100);
-        unequalDifferentValues.add(200);
-        unequalDifferentValues.add(100);
-        unequalDifferentValues.add(50);
-        unequalDifferentValues.add(150);
-
-        Heap<Integer> unequalDifferentOrder = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        unequalDifferentOrder.add(5);
-        unequalDifferentOrder.add(10);
-        unequalDifferentOrder.add(10);
-        unequalDifferentOrder.add(15);
-        unequalDifferentOrder.add(20);
-
-        Heap<Integer> unequalDifferentSizes = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        unequalDifferentSizes.add(10);
-        unequalDifferentSizes.add(20);
-        unequalDifferentSizes.add(10);
-        unequalDifferentSizes.add(5);
-
-        Heap<Integer> unequalSomeEqual = new Heap<>((Comparator<Integer>) Comparator.naturalOrder());
-        unequalSomeEqual.add(10);
-        unequalSomeEqual.add(20);
-        unequalSomeEqual.add(10);
-        unequalSomeEqual.add(5);
-        unequalSomeEqual.add(20);
-
-        Heap<Integer> unequalDifferentComparator = new Heap<>((Comparator<Integer>) Comparator.naturalOrder()
-                .reversed());
-        unequalDifferentComparator.add(10);
-        unequalDifferentComparator.add(20);
-        unequalDifferentComparator.add(10);
-        unequalDifferentComparator.add(5);
-        unequalDifferentComparator.add(15);
-
-        new EqualsTester().addEqualityGroup(Heap.class)
-                .addEqualityGroup(emptyA, emptyB)
-                .addEqualityGroup(singletonA, singletonB)
-                .addEqualityGroup(manyA, manyB)
-                .addEqualityGroup(unequalDifferentValues)
-                .addEqualityGroup(unequalDifferentOrder)
-                .addEqualityGroup(unequalDifferentSizes)
-                .addEqualityGroup(unequalSomeEqual)
-                .addEqualityGroup(unequalDifferentComparator)
-                .testEquals();
+    private <T> boolean check_equals(Heap<T> heap1, Heap<T> heap2) {
+        if (heap1.size() != heap2.size()) {
+            return false;
+        }
+        while (!heap1.isEmpty()) {
+            if (!Objects.equals(heap1.remove(), heap2.remove())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @BeforeEach
@@ -118,7 +59,7 @@ class HeapTest {
         @Test
         void size_empty_unchanged() {
             classUnderTest.size();
-            assertThat(classUnderTest).isEqualTo(preState);
+            assertThat(check_equals(classUnderTest, preState)).isTrue();
         }
 
         @Test
@@ -129,7 +70,7 @@ class HeapTest {
         @Test
         void isEmpty_empty_unchanged() {
             classUnderTest.isEmpty();
-            assertThat(classUnderTest).isEqualTo(preState);
+            assertThat(check_equals(classUnderTest, preState)).isTrue();
         }
 
         @Test
@@ -159,7 +100,8 @@ class HeapTest {
             @Test
             void remove_singleton_emptyHeap() {
                 classUnderTest.remove();
-                assertThat(classUnderTest).isEqualTo(new Heap<>((Comparator<Integer>) Comparator.naturalOrder()));
+                assertThat(check_equals(classUnderTest,
+                        new Heap<>((Comparator<Integer>) Comparator.naturalOrder()))).isTrue();
             }
 
             @Test
@@ -170,7 +112,7 @@ class HeapTest {
             @Test
             void peek_singleton_unchanged() {
                 classUnderTest.peek();
-                assertThat(classUnderTest).isEqualTo(preState);
+                assertThat(check_equals(classUnderTest, preState)).isTrue();
             }
 
             @Test
@@ -181,7 +123,7 @@ class HeapTest {
             @Test
             void size_singleton_unchanged() {
                 classUnderTest.size();
-                assertThat(classUnderTest).isEqualTo(preState);
+                assertThat(check_equals(classUnderTest, preState)).isTrue();
             }
 
             @Test
@@ -192,7 +134,7 @@ class HeapTest {
             @Test
             void isEmpty_singleton_unchanged() {
                 classUnderTest.isEmpty();
-                assertThat(classUnderTest).isEqualTo(preState);
+                assertThat(check_equals(classUnderTest, preState)).isTrue();
             }
 
             @Test
@@ -237,7 +179,7 @@ class HeapTest {
                     expected.add(20);
                     expected.add(20);
                     classUnderTest.remove();
-                    assertThat(classUnderTest).isEqualTo(expected);
+                    assertThat(check_equals(classUnderTest, expected)).isTrue();
                 }
 
                 @Test
@@ -248,7 +190,7 @@ class HeapTest {
                 @Test
                 void peek_many_unchanged() {
                     classUnderTest.peek();
-                    assertThat(classUnderTest).isEqualTo(preState);
+                    assertThat(check_equals(classUnderTest, preState)).isTrue();
                 }
 
                 @Test
@@ -259,7 +201,7 @@ class HeapTest {
                 @Test
                 void size_many_unchanged() {
                     classUnderTest.size();
-                    assertThat(classUnderTest).isEqualTo(preState);
+                    assertThat(check_equals(classUnderTest, preState)).isTrue();
                 }
 
                 @Test
@@ -270,7 +212,7 @@ class HeapTest {
                 @Test
                 void isEmpty_many_unchanged() {
                     classUnderTest.isEmpty();
-                    assertThat(classUnderTest).isEqualTo(preState);
+                    assertThat(check_equals(classUnderTest, preState)).isTrue();
                 }
 
                 @Test

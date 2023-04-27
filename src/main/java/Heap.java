@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 /**
  * A heap with the ordering defined by a Comparator, which is to be provided to the constructor. The top of the heap
@@ -149,26 +148,5 @@ public class Heap<T> {
         }
         stringBuilder.append("]");
         return stringBuilder.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Heap<?> that = (Heap<?>) o;
-        return Arrays.equals(this.heap, 0, this.size(), that.heap, 0, that.size());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(size);
-        for (int i = 0; i < size(); i++) {
-            result = result * 97 + Objects.hashCode(heap[i]);
-        }
-        return result;
     }
 }
