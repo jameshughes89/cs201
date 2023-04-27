@@ -31,7 +31,6 @@ public interface Graph<T> {
      *
      * @param node The node to be removed from the graph
      * @return True if the node was removed successfully
-     * @throws NoSuchElementException If the specified node does not exist within the graph
      */
     boolean removeNode(T node);
 
@@ -74,7 +73,6 @@ public interface Graph<T> {
      *
      * @param edge The edge to be removed from the graph
      * @return True if the edge was removed successfully
-     * @throws NoSuchElementException If the specified edge does not exist within the graph
      */
     boolean removeEdge(Edge<T> edge);
 
