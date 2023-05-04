@@ -3,9 +3,10 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
@@ -15,16 +16,12 @@ class HeapTest {
     private Heap<Integer> classUnderTest;
     private Heap<Integer> preState;
 
-    private <T> boolean check_equals(Heap<T> heap1, Heap<T> heap2) {
-        if (heap1.size() != heap2.size()) {
-            return false;
+    private <T> List<T> convertToList(Heap<T> heap) {
+        List<T> list = new ArrayList<>();
+        while (!heap.isEmpty()) {
+            list.add(heap.remove());
         }
-        while (!heap1.isEmpty()) {
-            if (!Objects.equals(heap1.remove(), heap2.remove())) {
-                return false;
-            }
-        }
-        return true;
+        return list;
     }
 
     @BeforeEach
@@ -59,7 +56,7 @@ class HeapTest {
         @Test
         void size_empty_unchanged() {
             classUnderTest.size();
-            assertThat(check_equals(classUnderTest, preState)).isTrue();
+            assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
         }
 
         @Test
@@ -70,7 +67,7 @@ class HeapTest {
         @Test
         void isEmpty_empty_unchanged() {
             classUnderTest.isEmpty();
-            assertThat(check_equals(classUnderTest, preState)).isTrue();
+            assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
         }
 
         @Test
@@ -100,8 +97,7 @@ class HeapTest {
             @Test
             void remove_singleton_emptyHeap() {
                 classUnderTest.remove();
-                assertThat(check_equals(classUnderTest,
-                        new Heap<>((Comparator<Integer>) Comparator.naturalOrder()))).isTrue();
+                assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(new Heap<>((Comparator<Integer>) Comparator.naturalOrder())));
             }
 
             @Test
@@ -112,7 +108,7 @@ class HeapTest {
             @Test
             void peek_singleton_unchanged() {
                 classUnderTest.peek();
-                assertThat(check_equals(classUnderTest, preState)).isTrue();
+                assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
             }
 
             @Test
@@ -123,7 +119,7 @@ class HeapTest {
             @Test
             void size_singleton_unchanged() {
                 classUnderTest.size();
-                assertThat(check_equals(classUnderTest, preState)).isTrue();
+                assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
             }
 
             @Test
@@ -134,7 +130,7 @@ class HeapTest {
             @Test
             void isEmpty_singleton_unchanged() {
                 classUnderTest.isEmpty();
-                assertThat(check_equals(classUnderTest, preState)).isTrue();
+                assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
             }
 
             @Test
@@ -179,7 +175,7 @@ class HeapTest {
                     expected.add(20);
                     expected.add(20);
                     classUnderTest.remove();
-                    assertThat(check_equals(classUnderTest, expected)).isTrue();
+                    assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(expected));
                 }
 
                 @Test
@@ -190,7 +186,7 @@ class HeapTest {
                 @Test
                 void peek_many_unchanged() {
                     classUnderTest.peek();
-                    assertThat(check_equals(classUnderTest, preState)).isTrue();
+                    assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
                 }
 
                 @Test
@@ -201,7 +197,7 @@ class HeapTest {
                 @Test
                 void size_many_unchanged() {
                     classUnderTest.size();
-                    assertThat(check_equals(classUnderTest, preState)).isTrue();
+                    assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
                 }
 
                 @Test
@@ -212,7 +208,7 @@ class HeapTest {
                 @Test
                 void isEmpty_many_unchanged() {
                     classUnderTest.isEmpty();
-                    assertThat(check_equals(classUnderTest, preState)).isTrue();
+                    assertThat(convertToList(classUnderTest)).isEqualTo(convertToList(preState));
                 }
 
                 @Test
